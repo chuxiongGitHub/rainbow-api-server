@@ -24,4 +24,5 @@ logging:
 mybatis:
   config-location: classpath:mybatis-config.xml
   mapper-locations: classpath:mapper/*Mapper.xml
-
+server:
+  port: 85
