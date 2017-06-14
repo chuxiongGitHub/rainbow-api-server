@@ -1,0 +1,27 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/rainbow_api_server
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
+    username: RAINBOW
+    password: admin123
+  jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      default-property-inclusion: non_null
+      time-zone: GMT+8
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    pool:
+      max-active: 8
+      max-idle: 8
+      min-idle: 0
+      max-wait: -1
+    timeout: 0
+logging:
+  level: debug
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*Mapper.xml
+
