@@ -6,6 +6,9 @@ spring:
     url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
     username: RAINBOW
     password: admin123
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  #
   jackson:
       date-format: yyyy-MM-dd HH:mm:ss
       default-property-inclusion: non_null
