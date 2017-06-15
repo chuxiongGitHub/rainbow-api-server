@@ -3,6 +3,7 @@
  */
 package com.rainbow.service
 
+import com.rainbow.mapper.StudentMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -11,8 +12,10 @@ import org.springframework.stereotype.Service
  *每日进步一小点.
  */
 @Service
-class UserService {
+class StudentService {
 
     @Autowired
-    lateinit private var userMapper:
+    lateinit private var studentMapper:StudentMapper
+
+    fun list()=studentMapper.list()
 }

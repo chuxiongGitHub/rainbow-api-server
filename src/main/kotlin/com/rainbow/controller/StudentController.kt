@@ -3,7 +3,9 @@
  */
 package com.rainbow.controller
 
+import com.rainbow.service.StudentService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController
 class StudentController {
 
     @Autowired
-    lateinit private var userMapper:UserMapp
+    lateinit private var studentService:StudentService
+
+    @GetMapping
+    fun list()=studentService.list()
 
 }
