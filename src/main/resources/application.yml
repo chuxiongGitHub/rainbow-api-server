@@ -1,9 +1,9 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://192.168.31.88:27017/rainbow_api_server
+      uri: mongodb://127.0.0.1:27017/rainbow_api_server
   datasource:
-    url: jdbc:oracle:thin:@192.168.31.88:1521/orcl
+    url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
     username: RAINBOW
     password: admin123
   jackson:
@@ -27,5 +27,12 @@ mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
 server:
   port: 85
+
+
+rainbow:
+  api:
+    user:
+      header:  101
+      url:  chuxiong-rainbow.com
 
 
