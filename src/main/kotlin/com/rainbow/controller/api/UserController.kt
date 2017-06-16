@@ -1,4 +1,4 @@
-package com.rainbow.controller
+package com.rainbow.controller.api
 
 import com.rainbow.feign.UserClient
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController
 class UserController {
 
     @Autowired
-    lateinit private var userClient:UserClient
+    lateinit private var userClient: UserClient
 
     @PostMapping("/login")
     fun login(@RequestBody map:Map<String,String>)=userClient.login(map)

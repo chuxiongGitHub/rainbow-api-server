@@ -1,7 +1,7 @@
 /**
  *作者 陈彩红 创建时间： 2017/6/14.
  */
-package com.rainbow.controller
+package com.rainbow.controller.api
 
 import com.rainbow.service.StudentService
 import org.springframework.beans.factory.annotation.Autowired
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController
 class StudentController {
 
     @Autowired
-    lateinit private var studentService:StudentService
+    lateinit private var studentService: StudentService
 
     @GetMapping
     fun list()=studentService.list()
