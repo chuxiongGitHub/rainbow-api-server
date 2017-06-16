@@ -8,7 +8,7 @@ spring:
     password: admin123
     type: com.alibaba.druid.pool.DruidDataSource
     validationQuery: select 1 from dual
-    filters: stat,wall,log4j
+    filters: stat,log4j
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     initialSize: 5
     minIdle: 5
@@ -37,6 +37,7 @@ spring:
       min-idle: 0
       max-wait: -1
     timeout: 0
+    password:
 logging:
   level:
     com.rainbow: DEBUG

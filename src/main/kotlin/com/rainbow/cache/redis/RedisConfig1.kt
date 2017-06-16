@@ -1,4 +1,4 @@
-package com.rainbow.cache
+package com.rainbow.cache.redis
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect
 import com.fasterxml.jackson.annotation.PropertyAccessor
@@ -34,12 +34,12 @@ class RedisConfig1 : CachingConfigurerSupport() {
         }
     }
 
-    fun redisTemplate(factory:RedisConnectionFactory): RedisTemplate<String, String> {
-        val template=StringRedisTemplate(factory)
+    fun redisTemplate(factory: RedisConnectionFactory): RedisTemplate<String, String> {
+        val template= StringRedisTemplate(factory)
 
-        val jackson2JsonRedisSerializer=Jackson2JsonRedisSerializer(Any::class.java)
-        val om=ObjectMapper()
-        om.setVisibility(PropertyAccessor.ALL,JsonAutoDetect.Visibility.ANY)
+        val jackson2JsonRedisSerializer= Jackson2JsonRedisSerializer(Any::class.java)
+        val om= ObjectMapper()
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY)
         om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL)
 
         jackson2JsonRedisSerializer.setObjectMapper(om)

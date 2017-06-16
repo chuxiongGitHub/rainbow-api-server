@@ -1,4 +1,4 @@
-package com.rainbow.cache
+package com.rainbow.cache.druid
 
 import com.alibaba.druid.support.http.StatViewServlet
 import javax.servlet.annotation.WebInitParam
@@ -18,5 +18,4 @@ import javax.servlet.annotation.WebServlet
                 WebInitParam(name = "restEnable", value = "false"))
 )
 class DruidStatViewServlet : StatViewServlet() {
-
 }
