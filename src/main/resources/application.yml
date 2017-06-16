@@ -7,6 +7,21 @@ spring:
     username: RAINBOW
     password: admin123
     type: com.alibaba.druid.pool.DruidDataSource
+    validationQuery: select 1 from dual
+    filters: stat,wall,log4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    initialSize: 5
+    minIdle: 5
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+
+
 
   #
   jackson:

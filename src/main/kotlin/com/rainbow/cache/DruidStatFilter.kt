@@ -14,4 +14,5 @@ import javax.servlet.annotation.WebInitParam
                 WebInitParam(name = "exclusions", value = "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"))
 )
 class DruidStatFilter : WebStatFilter() {
+    private val serialVersionUID: Long = 1L
 }

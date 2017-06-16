@@ -8,7 +8,8 @@ import javax.servlet.annotation.WebServlet
  * Created by rainbow on 2017/6/15.
  *一事专注，便是动人；一生坚守，便是深邃！
  */
-@WebServlet(urlPatterns = arrayOf("/druid/"),
+@SuppressWarnings("serial")
+@WebServlet(urlPatterns = arrayOf("/druid/*"),
         initParams = arrayOf(
                 WebInitParam(name = "allow", value = ""),
                 WebInitParam(name = "deny", value = "192.168.1.73"),
@@ -17,4 +18,5 @@ import javax.servlet.annotation.WebServlet
                 WebInitParam(name = "restEnable", value = "false"))
 )
 class DruidStatViewServlet : StatViewServlet() {
+
 }
