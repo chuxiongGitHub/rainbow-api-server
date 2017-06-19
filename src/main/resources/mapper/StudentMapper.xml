@@ -3,7 +3,7 @@
 <mapper namespace="com.rainbow.mapper.StudentMapper">
 
 
-    <select id="list" resultType="student">
+    <select id="list" resultType="arraylist">
     SELECT * FROM student
 </select>
 

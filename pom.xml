@@ -29,10 +29,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-aop</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 		<dependency>
@@ -188,5 +184,12 @@
 			</releases>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>nexus-release</id>
+			<name>Nexus Release Repository</name>
+			<url>http://rainbow.320.io/repository/maven-releases/</url>
+		</repository>
+	</distributionManagement>
 
 </project>
