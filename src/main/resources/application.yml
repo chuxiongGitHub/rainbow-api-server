@@ -7,24 +7,6 @@ spring:
     username: RAINBOW
     password: admin123
     type: com.alibaba.druid.pool.DruidDataSource
-    validationQuery: select 1 from dual
-    filters: stat,wall
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-    initialSize: 5
-    minIdle: 5
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 30000
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxPoolPreparedStatementPerConnectionSize: 20
-    useGlobalDataSourceStat: true
-    driver-class-name: oracle.jdbc.driver.OracleDriver
-
-
-
-  #
   jackson:
       date-format: yyyy-MM-dd HH:mm:ss
       default-property-inclusion: non_null
@@ -39,6 +21,10 @@ spring:
       max-wait: -1
     timeout: 0
     password:
+  resources:
+    static-locations: file://${beetl.base-root}static/
+  mvc:
+    static-path-pattern: /static/**
 logging:
   level:
     com.rainbow: DEBUG
@@ -55,4 +41,11 @@ rainbow:
       header:  101
       url:  chuxiong-rainbow.com
 
+beetl:
+  base-root: D:\webStormProjects\rainbow-manage-webapp\dist
+  properties:
+    DELIMITER_PLACEHOLDER_START: _{
+    DELIMITER_STATEMENT_START: <!--#
+    DELIMITER_STATEMENT_END: -->
+    RESOURCE.root: /
 
