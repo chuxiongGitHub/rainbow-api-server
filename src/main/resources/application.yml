@@ -1,9 +1,9 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://127.0.0.1:27017/rainbow_api_server
+      uri: mongodb://192.168.31.99:27017/rainbow_api_server
   datasource:
-    url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
+    url: jdbc:oracle:thin:@192.168.31.99:1521/orcl
     username: RAINBOW
     password: admin123
     type: com.alibaba.druid.pool.DruidDataSource
@@ -42,7 +42,7 @@ rainbow:
       url:  chuxiong-rainbow.com
 
 beetl:
-  base-root: D:/webstormProjects/aio-sales-webapp/dist/
+  base-root: D:\webStormProjects\aio-sales-webapp\dist\
   properties:
     DELIMITER_PLACEHOLDER_START: _{
     DELIMITER_STATEMENT_START: <!--#
