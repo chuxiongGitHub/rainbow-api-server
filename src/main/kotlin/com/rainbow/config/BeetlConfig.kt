@@ -29,6 +29,7 @@ class BeetlConfig {
         return config
     }
 
+    @Bean
     fun getBeetlSpringViewResolver(): BeetlSpringViewResolver {
 
         val beetlSpringViewResolver = BeetlSpringViewResolver()

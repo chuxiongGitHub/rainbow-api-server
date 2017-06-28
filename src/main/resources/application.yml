@@ -42,7 +42,7 @@ rainbow:
       url:  chuxiong-rainbow.com
 
 beetl:
-  base-root: D:\webstormProjects\aio-sales-webapp\dist
+  base-root: D:/webstormProjects/aio-sales-webapp/dist/
   properties:
     DELIMITER_PLACEHOLDER_START: _{
     DELIMITER_STATEMENT_START: <!--#
