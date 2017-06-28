@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 class WebConfig :WebMvcConfigurerAdapter(){
 
-    override fun addInterceptors(registry: InterceptorRegistry?) {
+    override fun addInterceptors(registry: InterceptorRegistry) {
         super.addInterceptors(registry)
     }
 }
