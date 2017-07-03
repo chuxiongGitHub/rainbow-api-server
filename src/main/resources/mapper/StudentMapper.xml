@@ -12,4 +12,19 @@
         VALUES (#{sno},#{sname},#{ssex},#{sbirthday},#{sclass})
     </insert>
 
+    <delete id="delBySno" parameterType="java.lang.String">
+        DELETE  FROM student
+        where sno=#{sno}
+    </delete>
+
+    <update id="update" parameterType="student">
+        UPDATE student
+        <set>
+            <if test="entity.sname!=null">sname=#{entity.sname},</if>
+            <if test="entity.sclass!=null">sclass=#{entity.sclass},</if>
+            <if test="entity.ssex!=null">ssex=#{entity.ssex}</if>
+        </set>
+        where sno=#{entity.sno}
+    </update>
+
 </mapper>

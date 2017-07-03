@@ -5,6 +5,7 @@ package com.rainbow.mapper
 
 import com.rainbow.entity.Student
 import org.apache.ibatis.annotations.Mapper
+import org.apache.ibatis.annotations.Param
 import org.springframework.stereotype.Component
 import org.springframework.stereotype.Repository
 
@@ -14,5 +15,7 @@ import org.springframework.stereotype.Repository
  */
 @Mapper
 interface StudentMapper : BaseMapper<Student> {
+
+    fun delBySno(@Param("sno") sno:String)
 
 }

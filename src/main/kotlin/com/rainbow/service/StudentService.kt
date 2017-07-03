@@ -38,6 +38,30 @@ class StudentService {
         } catch (e: ApiException) {
             logger.error("学生信息插入失败，原因为", e)
         }
+    }
 
+    fun delBySno(sno: String): Any? {
+        if (sno.isNullOrBlank()) throw ApiException("sno不能为空")
+        try {
+            studentMapper.delBySno(sno)
+
+            return mapOf("success" to true, "message" to "学号为${sno}的学生信息删除成功")
+        } catch (e: ApiException) {
+            logger.error("${e}")
+        }
+        return mapOf("success" to false, "message" to "学号为${sno}的学生信息删除失败")
+    }
+
+
+    fun updateBySno(student: Student):Any?{
+        if (student.sno.isNullOrBlank()) throw ApiException("sno不能为空")
+
+        try {
+            studentMapper.update(student)
+            return mapOf("success" to true, "message" to "学号为${student.sno}的学生信息修改成功")
+        }catch (e:ApiException){
+            logger.error("${e}")
+        }
+        return mapOf("success" to false, "message" to "学号为${student.sno}的学生信息修改失败")
     }
 }

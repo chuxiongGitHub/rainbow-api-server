@@ -8,7 +8,7 @@ spring:
     password: admin123
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
+      url: jdbc:oracle:thin:@192.168.31.99:1521/orcl
       driver-class-name: oracle.jdbc.driver.OracleDriver
       username: RAINBOW
       password: admin123
@@ -62,7 +62,7 @@ rainbow:
   api:
     user:
       header:  101
-      url:  chuxiong-rainbow.com
+      url:  192.168.31.99:82
 
 beetl:
   base-root: D:/webstormProjects/aio-sales-webapp/dist/

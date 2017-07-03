@@ -65,4 +65,14 @@ class RainbowApiServerApplicationTests {
         studentMapper.save(student)
     }
 
+
+    @Test
+    fun update(){
+        val student=Student()
+
+        student.sno="126"
+        student.sname="楚雄州"
+
+        studentMapper.update(student)
+    }
 }

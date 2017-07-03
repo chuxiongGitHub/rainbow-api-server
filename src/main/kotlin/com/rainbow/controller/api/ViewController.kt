@@ -13,5 +13,4 @@ class ViewController {
 
     @GetMapping("/")
     fun default()=ModelAndView("index")
-
 }
