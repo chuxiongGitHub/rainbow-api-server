@@ -22,8 +22,8 @@ import java.util.Objects;
  * Created by rainbow on 2017/6/16.
  * 一事专注，便是动人；一生坚守，便是深邃！
  */
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class RedisConfig extends CachingConfigurerSupport {
 
     @Bean

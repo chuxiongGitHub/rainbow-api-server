@@ -3,11 +3,10 @@
  */
 package com.rainbow.controller.api
 
+import com.rainbow.entity.Student
 import com.rainbow.service.StudentService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 /**
  * 创建者：陈彩红 on 2017/6/14
@@ -21,6 +20,9 @@ class StudentController {
     lateinit private var studentService: StudentService
 
     @GetMapping
-    fun list()=studentService.list()
+    fun list() = studentService.list()
 
+
+    @PostMapping
+    fun save(@RequestBody student: Student) = studentService.save(student)
 }

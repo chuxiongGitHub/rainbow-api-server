@@ -2,9 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.rainbow.mapper.StudentMapper">
 
-
-    <select id="list" resultType="arraylist">
+<cache/>
+    <select id="list" resultType="student">
     SELECT * FROM student
 </select>
+
+    <insert id="save" parameterType="student">
+        insert into student(sno,sname,ssex,sbirthday,sclass)
+        VALUES (#{sno},#{sname},#{ssex},#{sbirthday},#{sclass})
+    </insert>
 
 </mapper>

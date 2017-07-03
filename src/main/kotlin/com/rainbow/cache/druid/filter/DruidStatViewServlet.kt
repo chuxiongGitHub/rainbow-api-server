@@ -1,4 +1,4 @@
-package com.rainbow.cache.druid
+package com.rainbow.cache.druid.filter
 
 import com.alibaba.druid.support.http.StatViewServlet
 import javax.servlet.annotation.WebInitParam

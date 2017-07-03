@@ -4,6 +4,7 @@ import org.beetl.core.resource.FileResourceLoader
 import org.beetl.ext.spring.BeetlGroupUtilConfiguration
 import org.beetl.ext.spring.BeetlSpringViewResolver
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -29,7 +30,7 @@ class BeetlConfig {
         return config
     }
 
-    @Bean
+    @Bean()
     fun getBeetlSpringViewResolver(): BeetlSpringViewResolver {
 
         val beetlSpringViewResolver = BeetlSpringViewResolver()

@@ -12,5 +12,6 @@ class ViewController {
 
 
     @GetMapping("/")
-    fun default()=ModelAndView("redirect:/app")
+    fun default()=ModelAndView("index")
+
 }
