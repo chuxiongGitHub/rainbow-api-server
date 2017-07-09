@@ -1,5 +1,8 @@
 package com.rainbow.config
 
+import com.rainbow.interceptors.ApiInterceptor
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
@@ -11,7 +14,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 class WebConfig :WebMvcConfigurerAdapter(){
 
+    @Bean
+    open fun apiInterceptor()=ApiInterceptor()
+
     override fun addInterceptors(registry: InterceptorRegistry) {
-        super.addInterceptors(registry)
+       registry.addInterceptor(apiInterceptor())
+               .addPathPatterns("/api/v1/**")
     }
 }
