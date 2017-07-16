@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController
  */
 @RestController
 @RequestMapping("/api/v1/teacher")
-class Controller {
+class TeacherController {
 
     @Autowired
     lateinit var teacherService: TeacherService

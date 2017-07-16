@@ -35,4 +35,6 @@ open class ApiUtils {
         return "$url$sep$query"
     }
 
+    fun <T> mapToBean(map: Map<*,*>, clazz: Class<T>) = mapper.readValue(mapper.writeValueAsString(map), clazz)!!
+
 }

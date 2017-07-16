@@ -15,7 +15,7 @@ interface BaseMapper<T> {
 
     fun modify(@Param("ownerId") ownerId: String, @Param("entity") t: T)
 
-    fun list(): List<T>
+    fun list(): List<Any>
 
     fun delete(id: Long)
 

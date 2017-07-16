@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rainbow.mapper.AddressMapper">
+
+    <cache/>
+
+    <insert id="save" parameterType="address">
+        insert into address(mobile,username)
+        VALUES (#{mobile},#{username})
+    </insert>
+
+    <select id="list" resultMap="test">
+        select * FROM address a,position p where a.mobile=p.mobile
+    </select>
+
+    <resultMap id="test" type="Address">
+        <result property="mobile" column="mobile"/>
+        <result property="username" column="username"/>
+        <association property="position" javaType="Position">
+            <result property="latitude" column="latitude"/>
+            <result property="longitude" column="longitude"/>
+        </association>
+    </resultMap>
+
+    <delete id="delByMobile" parameterType="java.lang.String">
+        DELETE FROM address
+        WHERE mobile =#{mobile}
+    </delete>
+
+</mapper>
