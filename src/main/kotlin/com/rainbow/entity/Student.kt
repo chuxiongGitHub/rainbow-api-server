@@ -22,4 +22,6 @@ class Student:Serializable {
 
     var sclass: String? = null
 
+    var searchKey:String?=null
+
 }

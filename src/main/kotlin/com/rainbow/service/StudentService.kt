@@ -3,6 +3,7 @@
  */
 package com.rainbow.service
 
+import com.rainbow.commons.ApiUtils
 import com.rainbow.commons.exception.ApiException
 import com.rainbow.entity.Student
 import com.rainbow.mapper.StudentMapper
@@ -24,6 +25,9 @@ class StudentService {
     @Autowired
     lateinit private var studentMapper: StudentMapper
 
+    @Autowired
+    private lateinit var utils: ApiUtils
+
     fun list() = studentMapper.list()
 
     fun save(student: Student) {
@@ -32,6 +36,8 @@ class StudentService {
         if (student.sclass.isNullOrBlank()) throw ApiException("sclass不能为空")
         if (student.sbirthday == null) throw ApiException("sbirthday不能为空")
         if (student.ssex == null) throw ApiException("ssex不能为空")
+
+        build(student)
 
         try {
             studentMapper.save(student)
@@ -53,15 +59,29 @@ class StudentService {
     }
 
 
-    fun updateBySno(student: Student):Any?{
+    fun updateBySno(student: Student): Any? {
         if (student.sno.isNullOrBlank()) throw ApiException("sno不能为空")
 
         try {
             studentMapper.update(student)
             return mapOf("success" to true, "message" to "学号为${student.sno}的学生信息修改成功")
-        }catch (e:ApiException){
+        } catch (e: ApiException) {
             logger.error("${e}")
         }
         return mapOf("success" to false, "message" to "学号为${student.sno}的学生信息修改失败")
     }
+
+
+    fun build(t: Student) {
+        val keys = getSearchKeys(t)
+        t.searchKey = if (keys.isNotEmpty()) {
+            val first = utils.stringToPinyin(keys[0]!!, "first")
+            val full = utils.stringToPinyin(keys[0]!!, "full")
+            arrayOf(first.first(), first, full, *keys).distinct().joinToString(",")
+        } else {
+            ""
+        }
+    }
+
+    fun getSearchKeys(t: Student) = arrayOf(t.sno!!, t.sname, t.sclass)
 }
