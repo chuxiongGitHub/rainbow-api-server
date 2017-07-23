@@ -45,7 +45,7 @@ spring:
     timeout: 0
     password:
   resources:
-    static-locations: file://${beetl.base-root}static/
+    static-locations: file:${beetl.base-root}static\
   mvc:
     static-path-pattern: /static/**
 logging:
@@ -61,11 +61,11 @@ server:
 rainbow:
   api:
     user:
-      header:  101
+      header:  rainbow
       url:  192.168.31.99:82
 
 beetl:
-  base-root: D:/webStormProjects/rainbow-manage-webapp/dist/
+  base-root: D:\webStormProjects\rainbow-manage-webapp\dist\
   properties:
     DELIMITER_PLACEHOLDER_START: _{
     DELIMITER_STATEMENT_START: <!--#

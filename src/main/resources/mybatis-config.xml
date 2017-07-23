@@ -22,14 +22,10 @@
         <package name="com.rainbow.entity"/>
     </typeAliases>
     <!--插件配置-->
-    <!--
-    <plugins>
-        <plugin interceptor="com.github.pagehelper.PageHelper">
-            <property name="pageSizeZero" value="true"/>
-        </plugin>
-        <plugin interceptor="com.github.abel533.mapperhelper.MapperInterceptor">
-            <property name="mappers" value="com.github.abel533.mapper.Mapper"/>
-        </plugin>
-    </plugins>
-    -->
+<plugins>
+    <plugin interceptor="com.github.pagehelper.PageHelper">
+        <property name="pageSizeZero" value="true"/>
+    </plugin>
+</plugins>
+
 </configuration>

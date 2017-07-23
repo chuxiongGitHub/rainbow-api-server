@@ -3,6 +3,8 @@
  */
 package com.rainbow.controller.api
 
+import com.github.pagehelper.PageHelper
+import com.github.pagehelper.PageInfo
 import com.rainbow.entity.Student
 import com.rainbow.service.StudentService
 import org.springframework.beans.factory.annotation.Autowired
@@ -20,7 +22,19 @@ class StudentController {
     lateinit private var studentService: StudentService
 
     @GetMapping
-    fun list() = studentService.list()
+    fun list(
+            @RequestParam(required = false) page: Int?,
+            @RequestParam(defaultValue = "5") size: Int,
+            @RequestParam(defaultValue = "sno asc") sort: String
+    ): Any {
+        if (page != null) {
+            PageHelper.startPage<Student>(page, size, sort)
+        }
+        val list = studentService.list()
+
+
+        return if (page == null) mapOf("list" to list,"total" to list.size) else mapOf("list" to PageInfo(list),"total" to list.size)
+    }
 
 
     @PostMapping

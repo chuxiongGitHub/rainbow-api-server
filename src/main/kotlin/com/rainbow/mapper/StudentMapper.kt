@@ -16,6 +16,8 @@ import org.springframework.stereotype.Repository
 @Mapper
 interface StudentMapper : BaseMapper<Student> {
 
-    fun delBySno(@Param("sno") sno:String)
+    fun delBySno(@Param("sno") sno: String)
+
+    fun findByQueryMap(queryMap: Map<String, Any>): List<Student>
 
 }

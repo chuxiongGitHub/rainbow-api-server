@@ -75,4 +75,12 @@ class RainbowApiServerApplicationTests {
 
         studentMapper.update(student)
     }
+
+    @Test
+    fun select(){
+        val map= mutableMapOf<String,Any>()
+        map.put("sno","1")
+
+        studentMapper.findByQueryMap(map)
+    }
 }

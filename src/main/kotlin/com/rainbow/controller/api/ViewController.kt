@@ -11,6 +11,12 @@ import org.springframework.web.servlet.ModelAndView
 class ViewController {
 
 
+    @GetMapping("/app/**")
+    fun index()=ModelAndView("index")
+
     @GetMapping("/")
     fun default()=ModelAndView("index")
+
+
+
 }

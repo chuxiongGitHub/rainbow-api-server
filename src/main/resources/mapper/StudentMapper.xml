@@ -28,4 +28,13 @@
     </update>
 
     <resultMap id="test" type="student"/>
+
+    <select id="findByQueryMap" parameterType="map" resultType="student">
+        SELECT * from student
+        WHERE
+        <if test="sno!=null">sno LIKE CONNECT ('%',#{sno},'%')</if>
+        <if test="sname!=null">and sname LIKE #{sname}</if>
+        <if test="sclass!=null">and sclass LIKE #{sclass}</if>
+        <if test="ssex!=null">and ssex LIKE #{ssex}</if>
+    </select>
 </mapper>

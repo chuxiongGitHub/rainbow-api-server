@@ -28,7 +28,7 @@ class FeignConfig {
     @Bean
     @Scope("prototype")
     fun feignBuilder() = Feign.builder().decode404().requestInterceptor {
-        it.header("R-APP-ID", header)
+        it.header("R-CCH-CLIENT", header)
     }.errorDecoder { s, response ->
         if (response.status() in 400..499) {
             if (response.body() != null) {
