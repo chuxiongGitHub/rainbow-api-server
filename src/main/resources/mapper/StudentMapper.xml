@@ -8,8 +8,8 @@
 </select>
 
     <insert id="save" parameterType="student">
-        insert into student(sno,sname,ssex,sbirthday,sclass)
-        VALUES (#{sno},#{sname},#{ssex},#{sbirthday},#{sclass})
+        insert into student(sno,sname,ssex,sbirthday,sclass,searchKey)
+        VALUES (#{sno},#{sname},#{ssex},#{sbirthday},#{sclass},#{searchKey})
     </insert>
 
     <delete id="delBySno" parameterType="java.lang.String">

@@ -43,7 +43,9 @@ class AddressService {
         }
     }
 
-    fun list() = addressMapper.list()
+    fun list():Any?{
+        return mapOf("list" to addressMapper.list())
+    }
 
 
     fun delByMobile(mobile: String) = addressMapper.delByMobile(mobile)

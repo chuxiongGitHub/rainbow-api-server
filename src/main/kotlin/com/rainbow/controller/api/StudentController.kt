@@ -37,11 +37,11 @@ class StudentController {
     }
 
 
-    @PostMapping
+    @PostMapping("/create")
     fun save(@RequestBody student: Student) = studentService.save(student)
 
-    @DeleteMapping
-    fun delBySno(@RequestParam sno: String) = studentService.delBySno(sno)
+    @DeleteMapping("/delete/{sno}")
+    fun delBySno(@PathVariable("sno") sno: String) = studentService.delBySno(sno)
 
     @PostMapping("/update")
     fun update(@RequestBody student: Student) = studentService.updateBySno(student)

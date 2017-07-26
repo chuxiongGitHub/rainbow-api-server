@@ -37,7 +37,7 @@ class StudentService {
         if (student.sbirthday == null) throw ApiException("sbirthday不能为空")
         if (student.ssex == null) throw ApiException("ssex不能为空")
 
-        build(student)
+      student.searchKey =build(student).toString().plus(String)
 
         try {
             studentMapper.save(student)
