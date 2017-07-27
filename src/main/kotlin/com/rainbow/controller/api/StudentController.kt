@@ -25,15 +25,16 @@ class StudentController {
     fun list(
             @RequestParam(required = false) page: Int?,
             @RequestParam(defaultValue = "5") size: Int,
-            @RequestParam(defaultValue = "sno asc") sort: String
+            @RequestParam(defaultValue = "sno asc") sort: String,
+            @RequestParam(required = false,defaultValue = "") searchKey: String?
     ): Any {
         if (page != null) {
             PageHelper.startPage<Student>(page, size, sort)
         }
-        val list = studentService.list()
+        val list = studentService.list(searchKey)
 
 
-        return if (page == null) mapOf("list" to list,"total" to list.size) else mapOf("list" to PageInfo(list),"total" to list.size)
+        return if (page == null) mapOf("list" to list, "total" to list.size) else mapOf("list" to PageInfo(list), "total" to list.size)
     }
 
 
@@ -45,4 +46,7 @@ class StudentController {
 
     @PostMapping("/update")
     fun update(@RequestBody student: Student) = studentService.updateBySno(student)
+
+    @GetMapping("/search/{searchKey}")
+    fun searchKey(@PathVariable searchKey: String) = studentService.searchKey(searchKey)
 }

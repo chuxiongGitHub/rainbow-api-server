@@ -3,8 +3,13 @@
 <mapper namespace="com.rainbow.mapper.StudentMapper">
 
 <cache/>
-    <select id="list" resultMap="test">
+    <select id="getAllBySearchKey" resultMap="test" parameterType="java.lang.String">
     SELECT * FROM student
+    <where>
+        <if test="searchKey!=null or searchKey!=''">
+            searchKey like concat (concat('%',#{searchKey}),'%')
+        </if>
+    </where>
 </select>
 
     <insert id="save" parameterType="student">
@@ -36,5 +41,14 @@
         <if test="sname!=null">and sname LIKE #{sname}</if>
         <if test="sclass!=null">and sclass LIKE #{sclass}</if>
         <if test="ssex!=null">and ssex LIKE #{ssex}</if>
+    </select>
+
+    <select id="findBySearchKey" parameterType="String" resultType="student">
+        SELECT  * from student
+        <where>
+        <if test="searchKey!=null or searchKey!=''">
+           searchKey LIKE concat (concat('%',#{searchKey}),'%')
+        </if>
+        </where>
     </select>
 </mapper>

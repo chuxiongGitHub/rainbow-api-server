@@ -28,7 +28,7 @@ class StudentService {
     @Autowired
     private lateinit var utils: ApiUtils
 
-    fun list() = studentMapper.list()
+    fun list(searchKey: String?) = studentMapper.getAllBySearchKey(searchKey)
 
     fun save(student: Student) {
         if (student.sno.isNullOrBlank()) throw ApiException("sno不能为空")
@@ -37,7 +37,7 @@ class StudentService {
         if (student.sbirthday == null) throw ApiException("sbirthday不能为空")
         if (student.ssex == null) throw ApiException("ssex不能为空")
 
-      student.searchKey =build(student).toString().plus(String)
+        student.searchKey = build(student)
 
         try {
             studentMapper.save(student)
@@ -72,7 +72,9 @@ class StudentService {
     }
 
 
-    fun build(t: Student) {
+    fun searchKey(searchKey: String): List<Student>? = studentMapper.findBySearchKey(searchKey)
+
+    fun build(t: Student): String? {
         val keys = getSearchKeys(t)
         t.searchKey = if (keys.isNotEmpty()) {
             val first = utils.stringToPinyin(keys[0]!!, "first")
@@ -81,7 +83,8 @@ class StudentService {
         } else {
             ""
         }
+        return t.searchKey
     }
 
-    fun getSearchKeys(t: Student) = arrayOf(t.sno!!, t.sname, t.sclass)
+    fun getSearchKeys(t: Student) = arrayOf(t.sname!!, t.sno, t.sclass,t.ssex)
 }

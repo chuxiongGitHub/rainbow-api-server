@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.servlet.ModelAndView
 
 /**
@@ -28,9 +29,9 @@ class ExcelController {
     private val logger by lazy { LoggerFactory.getLogger(ExcelController::class.java) }
 
     @GetMapping
-    fun excel(): ModelAndView {
+    fun excel(@RequestParam(required = false,defaultValue = "") searchKey:String): ModelAndView {
 
-        val students = studentService.list() as List<*>
+        val students = studentService.list(searchKey) as List<*>
         logger.info("123={}", students)
 
         val model = mapOf(

@@ -44,7 +44,7 @@ class AddressService {
     }
 
     fun list():Any?{
-        return mapOf("list" to addressMapper.list())
+        return addressMapper.list()
     }
 
 

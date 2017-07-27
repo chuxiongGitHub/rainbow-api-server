@@ -20,4 +20,8 @@ interface StudentMapper : BaseMapper<Student> {
 
     fun findByQueryMap(queryMap: Map<String, Any>): List<Student>
 
+    fun findBySearchKey(@Param("searchKey") searchKey:String):List<Student>?
+
+    fun getAllBySearchKey(@Param("searchKey") searchKey: String?):List<Student>
+
 }
