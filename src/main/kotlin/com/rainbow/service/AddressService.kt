@@ -25,6 +25,10 @@ class AddressService {
     private val logger by lazy { LoggerFactory.getLogger(AddressService::class.java) }
 
     fun save(params: Map<String, Any>) {
+        requireNotNull(params["mobile"], { "手机号码不能为空" })
+        requireNotNull(params["username"], { "用户名不能为空" })
+        requireNotNull(params["longitude"], { "经度不能为空" })
+        requireNotNull(params["latitude"], { "纬度不能为空" })
         val address = Address()
         val position = Position()
 

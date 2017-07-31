@@ -51,4 +51,9 @@
         </if>
         </where>
     </select>
+
+    <select id="findBySno" parameterType="String" resultMap="test">
+        SELECT * from student
+        WHERE sno =#{sno}
+    </select>
 </mapper>

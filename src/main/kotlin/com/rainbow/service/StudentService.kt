@@ -74,6 +74,9 @@ class StudentService {
 
     fun searchKey(searchKey: String): List<Student>? = studentMapper.findBySearchKey(searchKey)
 
+
+    fun findBySno(sno: String): Student? = studentMapper.findBySno(sno)
+
     fun build(t: Student): String? {
         val keys = getSearchKeys(t)
         t.searchKey = if (keys.isNotEmpty()) {

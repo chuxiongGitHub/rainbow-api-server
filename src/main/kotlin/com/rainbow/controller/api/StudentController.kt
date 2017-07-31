@@ -49,4 +49,7 @@ class StudentController {
 
     @GetMapping("/search/{searchKey}")
     fun searchKey(@PathVariable searchKey: String) = studentService.searchKey(searchKey)
+
+    @GetMapping("info/{sno}")
+    fun getInfo(@PathVariable("sno") sno: String) = studentService.findBySno(sno)
 }

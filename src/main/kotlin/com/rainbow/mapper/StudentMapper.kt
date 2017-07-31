@@ -24,4 +24,6 @@ interface StudentMapper : BaseMapper<Student> {
 
     fun getAllBySearchKey(@Param("searchKey") searchKey: String?):List<Student>
 
+    fun findBySno(@Param("sno") sno: String): Student?
+
 }
