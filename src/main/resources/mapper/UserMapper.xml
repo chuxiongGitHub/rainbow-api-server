@@ -13,13 +13,18 @@
         WHERE mobile=#{mobile}
     </select>
 
-    <select id="list" resultType="user" parameterType="String">
+    <select id="list" resultType="user" parameterType="java.lang.String">
         SELECT * from userInfo
         <where>
             <if test="searchKey!=null or search!=''">
                 searchKey LIKE concat (concat('%',#{searchKey}),'%')
             </if>
         </where>
+    </select>
+
+    <select id="findByUUID" resultType="user" parameterType="String">
+        SELECT * from userInfo
+        where uuid=#{uuid} and status=1
     </select>
 
 </mapper>

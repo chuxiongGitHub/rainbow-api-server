@@ -43,9 +43,8 @@ spring:
       min-idle: 0
       max-wait: -1
     timeout: 0
-    password:
   resources:
-    static-locations: file:${beetl.base-root}static\
+    static-locations: file:/${beetl.base-root}static\
   mvc:
     static-path-pattern: /static/**
 logging:
@@ -62,7 +61,7 @@ rainbow:
   api:
     user:
       header:  rainbow
-      url:  192.168.31.99:82
+      url:  192.168.31.99:10001
 
 beetl:
   base-root: D:\webStormProjects\rainbow-manage-webapp\dist\

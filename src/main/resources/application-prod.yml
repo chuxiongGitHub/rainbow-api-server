@@ -1,0 +1,10 @@
+spring:
+  resources:
+    static-locations: file:///dist/static/
+  mvc:
+    static-path-pattern: /static/**
+beetl:
+  base-root: /dist/
+
+logging:
+  file: /var/logs/manage.log

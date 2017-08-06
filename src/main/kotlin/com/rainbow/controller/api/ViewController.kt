@@ -11,12 +11,13 @@ import org.springframework.web.servlet.ModelAndView
 class ViewController {
 
 
+    @GetMapping("/")
+    fun default() = ModelAndView("redirect:/app")
+
+
     @GetMapping("/app/**")
     fun index()=ModelAndView("index")
 
-    @GetMapping("/")
-    fun default()=ModelAndView("index")
-
-
-
+    @GetMapping("/auth")
+    fun login() = ModelAndView("auth")
 }

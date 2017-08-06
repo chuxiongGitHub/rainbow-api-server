@@ -29,10 +29,10 @@ class ExcelController {
     private val logger by lazy { LoggerFactory.getLogger(ExcelController::class.java) }
 
     @GetMapping
-    fun excel(@RequestParam(required = false,defaultValue = "") searchKey:String): ModelAndView {
+    fun excel(@RequestParam queryMap: MutableMap<String, String>): ModelAndView {
 
-        val students = studentService.list(searchKey) as List<*>
-        logger.info("123={}", students)
+
+        val students = studentService.list(queryMap["searchKey"]) as List<*>
 
         val model = mapOf(
                 "headers" to listOf(
@@ -45,7 +45,7 @@ class ExcelController {
                 ),
 
                 "data" to students.mapIndexed { index, it ->
-                    val student=it as Student
+                    val student = it as Student
                     //val student = apiUtils.mapToBean(it as Map<*,*>, Student::class.java)
 
                     listOf(

@@ -7,6 +7,7 @@ import com.rainbow.feign.UserClient
 import com.rainbow.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
+import javax.servlet.http.HttpSession
 
 /**
  * Created by rainbow on 2017/6/15.
@@ -21,9 +22,6 @@ class UserController {
 
     @Autowired
     private lateinit var userService: UserService
-
-    @PostMapping("/login")
-    fun login(@RequestBody map: Map<String, String>) = userClient.login(map)
 
 
     @PostMapping("/create")

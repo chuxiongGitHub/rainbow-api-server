@@ -15,5 +15,5 @@ interface UserClient {
 
     //用户登录
     @RequestMapping("/api/v1/user/login", method = arrayOf(RequestMethod.POST))
-    fun login(@RequestBody map: Map<String, String>): Any
+    fun login(@RequestBody map: Map<String, String>): Map<String, Any?>
 }

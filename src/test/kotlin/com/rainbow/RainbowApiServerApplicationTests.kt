@@ -49,38 +49,4 @@ class RainbowApiServerApplicationTests {
             logger.error("${e}")
         }
     }
-
-    @Autowired
-    lateinit var studentMapper:StudentMapper
-
-    @Test
-    fun save(){
-        val student=Student()
-        student.sno="255"
-        student.sname="陈彩红"
-        student.ssex="男"
-        student.sclass="10"
-        student.sbirthday= Date()
-
-        studentMapper.save(student)
-    }
-
-
-    @Test
-    fun update(){
-        val student=Student()
-
-        student.sno="126"
-        student.sname="楚雄州"
-
-        studentMapper.update(student)
-    }
-
-    @Test
-    fun select(){
-        val map= mutableMapOf<String,Any>()
-        map.put("sno","1")
-
-        studentMapper.findByQueryMap(map)
-    }
 }
